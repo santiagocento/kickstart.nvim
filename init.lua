@@ -478,6 +478,13 @@ require('lazy').setup({
   {
     -- Main LSP Configuration
     'neovim/nvim-lspconfig',
+    opts = {
+      servers = {
+        sourcekit = {
+          cmd = { '/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp' },
+        },
+      },
+    },
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       -- Mason must be loaded before its dependents so we need to set it up here.
@@ -671,9 +678,27 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
-        -- gopls = {},
-        -- pyright = {},
+        clangd = {},
+        gopls = {},
+        pyright = {},
+        ts_ls = {},
+        astro = {},
+        cmake = {},
+        css_variables = {},
+        cssls = {},
+        cssmodules_ls = {},
+        docker_compose_language_service = {},
+        dockerls = {},
+        dotls = {},
+        eslint = {},
+        html = {},
+        jsonls = {},
+        postgres_lsp = {},
+        prismals = {},
+        pylsp = {},
+        sqlls = {},
+        tailwindcss = {},
+        yamlls = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -900,6 +925,8 @@ require('lazy').setup({
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+
+  { 'rose-pine/neovim', name = 'rose-pine' },
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
